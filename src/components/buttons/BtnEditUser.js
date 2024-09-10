@@ -26,8 +26,8 @@ function BtnUserEdit({ mailto, updateUserName }) {
       const data = await response.json()
       setResponseMessage(data.message)
       if (response.ok) {
-        updateUserName(mail, name) // Actualiza el nombre del usuario en la página
-        setAutoClose(true) // Activa el auto cierre después de recibir la respuesta exitosa
+        updateUserName(mail, name) // Actualizo el nombre del usuario en la pág
+        setAutoClose(true) // Activo el auto cierre después de recibir la respuesta ok
       }
     } catch (error) {
       console.error("Error al cambiar el nombre:", error)
@@ -38,7 +38,7 @@ function BtnUserEdit({ mailto, updateUserName }) {
   const handleChangePassword = async () => {
     try {
       const response = await fetch(
-        "http://localhost/bd-appqr/v1/user/change-password.php",
+        "https://vigas.tandempatrimonionacional.eu/andres/v1/user/change-password.php",
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -47,7 +47,7 @@ function BtnUserEdit({ mailto, updateUserName }) {
       )
       const data = await response.json()
       setResponseMessage(data.message)
-      setAutoClose(true) // Activa el auto cierre después de recibir la respuesta exitosa
+      setAutoClose(true) // Auto cierre después de recibir la respuesta ok
     } catch (error) {
       console.error("Error al cambiar la contraseña:", error)
       setResponseMessage("Error al cambiar la contraseña")
@@ -57,10 +57,7 @@ function BtnUserEdit({ mailto, updateUserName }) {
   return (
     <>
       <div className="tooltip-container-configRol">
-        <button
-          className="btnUserEdit animationFundido" // Corregido el nombre de la clase
-          onClick={toggleModal}
-        >
+        <button className="btnUserEdit animationFundido" onClick={toggleModal}>
           <div className="icon-role-container">
             <StaticImage
               className="icon-role"
