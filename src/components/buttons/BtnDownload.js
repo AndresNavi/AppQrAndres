@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import "../buttons/buttons.css";
-import BtnClose from "./BtnClose";
 import "../modals/modal.css";
 import BtnPrimary from "../buttons/BtnPrimary";
 
@@ -49,7 +48,7 @@ function BtnDownload({ handleDownload, qr }) {
           <div className="modal animationFundido" ref={modalRef}>
             <div className="modal-header">
               <h2>Descargar QR</h2>
-              <BtnClose onClick={toggleModal} />
+              <button className="close-download-qr" onClick={toggleModal}>❌</button>
             </div>
             <div className="modal-body">
               <p>Seleccione el formato de descarga:</p>

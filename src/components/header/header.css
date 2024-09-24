@@ -28,6 +28,10 @@
   text-decoration: none;
   font-size: var(--font-xl);
   display: flex;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .styledLink:hover {

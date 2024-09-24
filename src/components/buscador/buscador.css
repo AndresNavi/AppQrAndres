@@ -24,15 +24,28 @@
   
   .buscador-item {
     padding: 10px;
-    border-bottom: 1px solid #ccc;
     cursor: pointer;
+    background-color: none;
+    width: 97%;
+    margin-bottom: 1em;
   }
   
-  .buscador-item:last-child {
-    border-bottom: none;
-  }
   .buscador-no-results {
     padding: 10px;
     text-align: center;
     color: #251f1f;
+  }
+
+  @media (max-width: 1024px) {
+    .buscador-input {
+      margin-left: 50px;
+      margin-top: 70px;
+    }
+  }
+  @media (max-width: 412px){
+    .buscador-input{
+      width: 300px;
+      margin-left: 55px;
+      margin-top: -10px;
+    }
   }

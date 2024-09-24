@@ -5,12 +5,12 @@
   width: 100%;
 }
 .footer-escritorio .thumbnail-TANDEM {
-  height: 71px;
-  left: 519px;
-  object-fit: cover;
+  display: flex;
   position: absolute;
-  top: 81px;
-  width: 957px;
+  margin-left: 600px;
+  margin-top: 80px;
+  width: 900px;
+
 }
 .footer-escritorio .logotipo {
   background-image: url(../../images/icons/logogeneradorqr.png);
@@ -172,7 +172,7 @@
 @media (max-width: 1024px) {
   .footer-escritorio {
     width: 1024px;
-    height: 196px;
+    height: 197px;
   }
   .footer-escritorio .logotipo {
     display: none;
@@ -210,8 +210,12 @@
     margin-bottom: 260%;
   }
   .footer-escritorio .thumbnail-TANDEM {
-    left: 2.5%;
-    top: 50%;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    width: 900px;
+    margin-left: 58px;
+    margin-top: 90px;
   }
 }
 
@@ -257,7 +261,10 @@
     right: 265%;
     margin-bottom: 260%;
   }
-  .thumbnail-TANDEM img {
+  .footer-escritorio .thumbnail-TANDEM {
+    flex-direction: column;
+    align-items: center;
     width: 200px;
+    margin-left: 10px;
   }
 }

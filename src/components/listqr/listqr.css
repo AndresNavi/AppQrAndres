@@ -2,7 +2,6 @@
   text-align: center;
   padding: 10px;
 }
-
 .listado-qr {
   width: 100%;
   display: flex;
@@ -11,7 +10,6 @@
   justify-content: center;
   align-items: flex-start;
 }
-
 .tarjeta-qr {
   text-align: center;
   padding: 35px;
@@ -19,12 +17,10 @@
   border: var(--btn-border-doble-2) var(--color-secondary);
   border-radius: 10%;
 }
-
 .img-personal {
   overflow: hidden;
   cursor: auto;
 }
-
 .juntitos {
   display: flex;
   justify-content: center;
@@ -37,5 +33,31 @@
   flex-shrink: 0;
 }
 .buscador {
-  flex-grow: 1; /* Add this to make the Buscador component take up the remaining space */
+  flex-grow: 1;
+}
+.tarjeta-qr {
+  padding: 10px;
+  border: 1px solid red;
+  margin-bottom: 10px;
+  transition: background-color 0.3s ease;
+}
+.tarjeta-qr:hover {
+  background-color: #F0F0F0;
+}
+.tarjeta-qr.highlight {
+  background-color: var(--color-tertiary);
+  color: black;
+}
+
+@media (max-width: 1024px) {
+  .listado-qr{
+    margin-top: 100px;
+    margin-bottom: 254px;
+  }
+}
+@media (max-width: 412px) {
+  .listado-qr{
+    margin-top: 100px;
+    margin-bottom: 50px;
+  }
 }

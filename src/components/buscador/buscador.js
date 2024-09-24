@@ -1,36 +1,40 @@
-import React, { useState, useEffect } from 'react';
-import './buscador.css';
+import React, { useState, useEffect } from "react"
+import "./buscador.css"
 
 const Buscador = ({ onSearch, onSelect }) => {
-  const [query, setQuery] = useState('');
-  const [results, setResults] = useState([]);
+  const [query, setQuery] = useState("")
+  const [results, setResults] = useState([])
 
   useEffect(() => {
-    if (query === '') {
-      setResults([]);
-      return;
+    if (query === "") {
+      setResults([])
+      return
     }
     const fetchResults = async () => {
       try {
-        const response = await fetch(`https://vigas.tandempatrimonionacional.eu/andres/v1/user/buscador.php?query=${encodeURIComponent(query)}`);
-        const result = await response.json();
-        setResults(result.users);
+        const response = await fetch(
+          `https://vigas.tandempatrimonionacional.eu/vigas/v1/user/buscador.php?query=${encodeURIComponent(
+            query
+          )}`
+        )
+        const result = await response.json()
+        setResults(result.users)
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data:", error)
       }
-    };
-    fetchResults();
-  }, [query]);
+    }
+    fetchResults()
+  }, [query])
 
-  const handleSearch = (event) => {
-    const newQuery = event.target.value;
-    setQuery(newQuery);
-    onSearch(newQuery);
-  };
+  const handleSearch = event => {
+    const newQuery = event.target.value
+    setQuery(newQuery)
+    onSearch(newQuery)
+  }
 
-  const handleSelect = (id) => {
-    onSelect(id);
-  };
+  const handleSelect = id => {
+    onSelect(id)
+  }
 
   return (
     <div className="buscador-container">
@@ -46,16 +50,25 @@ const Buscador = ({ onSearch, onSelect }) => {
       ) : (
         results.length > 0 && (
           <ul className="buscador-results">
-            {results.map((item) => (
-              <li key={item.id} className="buscador-item" onClick={() => handleSelect(item.id)}>
+            {results.map(item => (
+              <button
+                key={item.id}
+                className="buscador-item"
+                onClick={() => handleSelect(item.id)}
+                onKeyDown={e => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    handleSelect(item.id)
+                  }
+                }}
+              >
                 {`${item.name} - ${item.role}`}
-              </li>
+              </button>
             ))}
           </ul>
         )
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Buscador;
+export default Buscador

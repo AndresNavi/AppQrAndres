@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import { Formik, Form, Field, ErrorMessage } from "formik"
 import * as Yup from "yup"
 import Cuadrado from "../Cuadrado/cuadrado"
-import ContactLink from "../modals/modalregistro/contactlink"
+
 
 const RegisterForm = ({ register }) => {
   const [name, setName] = useState("")
@@ -17,7 +17,7 @@ const RegisterForm = ({ register }) => {
   const handleRegistro = async () => {
     try {
       const response = await fetch(
-        "https://vigas.tandempatrimonionacional.eu/andres/v1/user/register.php",
+        "https://vigas.tandempatrimonionacional.eu/vigas/v1/user/register.php",
         {
           method: "POST",
           headers: {
@@ -259,7 +259,10 @@ const RegisterForm = ({ register }) => {
             <br />
             <Cuadrado />
             <br />
-            <ContactLink />
+            <div>
+              <p>¿Tienes problemas para registrarte? Escribe a</p>
+              <a href="mailto:prueba.appqr@gmail.com">prueba.appqr@gmail.com</a>
+            </div>
             <br />
             <button
               type="submit"

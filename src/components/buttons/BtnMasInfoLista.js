@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from "react"
 import "../buttons/buttons.css"
-import BtnClose from "./BtnClose"
 import "../modals/modal.css"
 
 function BtnMasInfoLista({ qrName }) {
@@ -38,8 +37,8 @@ function BtnMasInfoLista({ qrName }) {
   }
 
   const fetchQrs = () => {
-    console.log("Fetching data for QR name:", qrName) // Añadido para depuración
-    fetch("https://vigas.tandempatrimonionacional.eu/andres/v1/qr/info-qr.php", {
+    console.log("Fetching data for QR name:", qrName)
+    fetch("https://vigas.tandempatrimonionacional.eu/vigas/v1/qr/info-qr.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -53,8 +52,8 @@ function BtnMasInfoLista({ qrName }) {
         return response.json()
       })
       .then(data => {
-        console.log("Received data:", data) // Añadido para depuración
-        setQrs(data) // Cambiado para guardar todo el objeto recibido
+        console.log("Received data:", data) 
+        setQrs(data)
       })
       .catch(error => {
         console.error("Error fetching QR info:", error)
@@ -72,7 +71,7 @@ function BtnMasInfoLista({ qrName }) {
           <div className="modal animationFundido" ref={modalRef}>
             <div className="modal-header">
               <h2>Más Información</h2>
-              <BtnClose onClick={toggleModal} />
+              <button className="close-mas-info-qr" onClick={toggleModal}>❌</button>
             </div>
             <div className="modal-body">
               {qrs ? (

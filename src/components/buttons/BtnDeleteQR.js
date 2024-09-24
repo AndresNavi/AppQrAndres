@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import { StaticImage } from "gatsby-plugin-image"
 import "../buttons/buttons.css"
-import BtnClose from "./BtnClose"
 import BtnSecondary from "./BtnSecondary"
 
 function BtnQRDelete({ qrName, deleteQR }) {
@@ -26,7 +25,7 @@ function BtnQRDelete({ qrName, deleteQR }) {
       console.log("Iniciando petición para eliminar QR", qr)
 
       const response = await fetch(
-        "https://vigas.tandempatrimonionacional.eu/andres/v1/qr/delete-qr.php",
+        "https://vigas.tandempatrimonionacional.eu/vigas/v1/qr/delete-qr.php",
         {
           method: "DELETE",
           headers: {
@@ -81,7 +80,7 @@ function BtnQRDelete({ qrName, deleteQR }) {
           <div className="modal">
             <div className="modal-header">
               <h2>Eliminar QR</h2>
-              <BtnClose onClick={toggleModal} />
+              <button className="close-delete-qr" onClick={toggleModal}>❌</button>
             </div>
             <div className="modal-body">
               <p>Si presiona el botón, se eliminará este QR.</p>

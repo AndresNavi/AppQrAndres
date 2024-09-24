@@ -3,9 +3,11 @@ import { StaticImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
 import "./header.css"
 import "../layout.css"
+import Oscuro from "../oscuro/oscuro"
+
 const Halt3 = () => (
-  <div className="halt3">
-      <Link to="#">
+  <div className="halt3 hosc">
+      <Link to="/">
       <StaticImage
         src="../../images/icons/logogeneradorqr.png"
         alt="patrimonio"
@@ -14,6 +16,7 @@ const Halt3 = () => (
         class="imagen"
       />
     </Link>
+    <Oscuro></Oscuro>
   </div>
 )
 export default Halt3

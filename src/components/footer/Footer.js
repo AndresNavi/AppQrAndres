@@ -5,11 +5,16 @@ import "./footer.css"
 const Footer = () => {
   return (
     <div className="footer-escritorio">
-      <StaticImage
-        className="thumbnail-TANDEM animationFundido"
-        alt="Thumbnail TANDEM"
-        src="../../images/thumbnail-TANDEM.png"
-      />
+      <div className="thumbnail-TANDEM animationFundido">
+        <StaticImage
+          alt="Thumbnail TANDEM"
+          src="../../images/thumbnail-TANDEM1.png"
+        />
+        <StaticImage
+          alt="Thumbnail TANDEM"
+          src="../../images/thumbnail-TANDEM2.png"
+        />
+      </div>
       <i>
         <div className="logotipo animationFundido" />
       </i>

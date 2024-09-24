@@ -1,17 +1,17 @@
 import React, { useState } from "react"
-import { navigate } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import "../buttons/buttons.css"
 import "../modals/modal.css"
 import BtnSecondary from "../buttons/BtnSecondary"
-
 
 function BtnExit() {
   const [isOpen, setIsOpen] = useState(false)
 
   const handleClose = () => {
     setIsOpen(false)
-    navigate("/")
+    localStorage.removeItem("userName")
+    localStorage.removeItem("userRole")
+    window.location.href = "/"
   }
 
   const toggleModal = () => {

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react"
 import QRCode from "qrcode.react"
 import "./listqr.css"
+import "../layout.css"
 import Buscador2 from "../buscador/buscador2"
 import BtnDownload from "../buttons/BtnDownload"
 import { toPng, toJpeg, toSvg } from "html-to-image"
@@ -13,6 +14,7 @@ const ListQr = ({ url }) => {
   const [qrs, setQrs] = useState([])
   const [filteredQrs, setFilteredQrs] = useState([])
   const [message, setMessage] = useState("")
+  const [selectedQrId, setSelectedQrId] = useState(null)
   const qrRefs = useRef({})
 
   useEffect(() => {
@@ -28,8 +30,9 @@ const ListQr = ({ url }) => {
           throw new Error(`HTTP error! status: ${response.status}`)
         }
         const data = await response.json()
-        setQrs(data.qrs)
-        setFilteredQrs(data.qrs)
+
+        setQrs(Array.isArray(data.qrs) ? data.qrs : [])
+        setFilteredQrs(Array.isArray(data.qrs) ? data.qrs : [])
         setMessage(data.message)
       } catch (error) {
         console.error("Error al buscar la lista de usuarios", error)
@@ -74,6 +77,17 @@ const ListQr = ({ url }) => {
         qr.qr_name_qr.toLowerCase().includes(query.toLowerCase())
       )
       setFilteredQrs(filtered)
+      if (filtered.length > 0) {
+        handleSelectQr(filtered[0].qr_id)
+      }
+    }
+  }
+
+  const handleSelectQr = qrId => {
+    setSelectedQrId(qrId)
+    const element = qrRefs.current[qrId]
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" })
     }
   }
 
@@ -83,21 +97,31 @@ const ListQr = ({ url }) => {
       <BtnNuevoQr></BtnNuevoQr>
       <Buscador2 onSearch={handleSearch} />
       <div className="listado-qr">
-        {filteredQrs.map(qr => (
-          <div key={qr.qr_id} className="tarjeta-qr">
-            <div ref={el => (qrRefs.current[qr.qr_id] = el)}>
-              <QRCode
-                value={qr.qr_description}
-                fgColor={qr.qr_color_qr}
-                className="qrimg"
-              />
+        {filteredQrs && filteredQrs.length > 0 ? (
+          filteredQrs.map(qr => (
+            <div
+              key={qr.qr_id}
+              className={`tarjeta-qr ${
+                selectedQrId === qr.qr_id ? "highlight" : ""
+              }`}
+              onClick={() => handleSelectQr(qr.qr_id)}
+            >
+              <div ref={el => (qrRefs.current[qr.qr_id] = el)}>
+                <QRCode
+                  value={qr.qr_description}
+                  fgColor={qr.qr_color_qr}
+                  className="qrimg"
+                />
+              </div>
+              <BtnMasInfoLista qrName={qr.qr_name_qr} />
+              <p>{qr.qr_name_qr}</p>
+              <BtnDownload qr={qr} handleDownload={handleDownload} />
+              <BtnQRDelete qrName={qr.qr_name_qr} deleteQR={deleteQR} />
             </div>
-            <BtnMasInfoLista qrName={qr.qr_name_qr} />
-            <p>{qr.qr_name_qr}</p>
-            <BtnDownload qr={qr} handleDownload={handleDownload} />
-            <BtnQRDelete qrName={qr.qr_name_qr} deleteQR={deleteQR} />
-          </div>
-        ))}
+          ))
+        ) : (
+          <p>No hay códigos QR disponibles.</p>
+        )}
       </div>
     </>
   )

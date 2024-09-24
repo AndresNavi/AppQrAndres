@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from "react"
 import "../buttons/buttons.css"
-import BtnClose from "./BtnClose"
 import "../modals/modal.css"
 
 function BtnMasInfo({ mailto }) {
@@ -39,7 +38,7 @@ function BtnMasInfo({ mailto }) {
   }
 
   const fetchUserInfo = () => {
-    fetch("https://vigas.tandempatrimonionacional.eu/andres/v1/user/info-user.php", {
+    fetch("https://vigas.tandempatrimonionacional.eu/vigas/v1/user/info-user.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -65,7 +64,7 @@ function BtnMasInfo({ mailto }) {
           <div className="modal animationFundido" ref={modalRef}>
             <div className="modal-header">
               <h2>Más Información</h2>
-              <BtnClose onClick={toggleModal} />
+              <button className="close-mas-info-user" onClick={toggleModal}>❌</button>
             </div>
             <div className="modal-body">
               {userInfo ? (

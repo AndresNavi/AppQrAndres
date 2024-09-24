@@ -93,3 +93,8 @@
     transform: none;
   }
 }
+@media (max-width: 412px) {
+  .sel{
+    width: 200px;
+  }
+}

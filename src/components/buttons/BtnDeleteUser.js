@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import { StaticImage } from "gatsby-plugin-image"
 import "../buttons/buttons.css"
-import BtnClose from "./BtnClose"
 import BtnSecondary from "./BtnSecondary"
 
 function BtnUserDelete({ mailto, deleteUser }) {
@@ -18,7 +17,7 @@ function BtnUserDelete({ mailto, deleteUser }) {
       console.log("Iniciando petición para eliminar usuario", mail)
 
       const response = await fetch(
-        "https://vigas.tandempatrimonionacional.eu/andres/v1/user/delete-user.php",
+        "https://vigas.tandempatrimonionacional.eu/vigas/v1/user/delete-user.php",
         {
           method: "DELETE",
           headers: {
@@ -55,7 +54,7 @@ function BtnUserDelete({ mailto, deleteUser }) {
         >
           <div className="icon-role-container">
             <StaticImage
-              className="icon-role"
+              className="icon-role btnwhite"
               src="../../images/icons/borrar-usuario.png"
               alt="Icon-Role"
             />
@@ -69,7 +68,7 @@ function BtnUserDelete({ mailto, deleteUser }) {
           <div className="modal">
             <div className="modal-header">
               <h2>Eliminar Usuario</h2>
-              <BtnClose onClick={toggleModal} />
+              <button className="close-delete-user" onClick={toggleModal}>❌</button>
             </div>
             <div className="modal-body">
               <p>

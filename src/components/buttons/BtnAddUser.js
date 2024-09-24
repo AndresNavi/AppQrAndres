@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import ModalForm from "../login-registro/modal-registro-admin"
 import { StaticImage } from "gatsby-plugin-image"
-import BtnClose from "./BtnClose"
 
 const BtnAddUser = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false)
@@ -26,7 +25,6 @@ const BtnAddUser = () => {
         <div className="modal-overlay">
           <div className="modal-container">
             <div className="modal-content">
-              <BtnClose onClick={closeModal}></BtnClose>
               <ModalForm />
             </div>
           </div>

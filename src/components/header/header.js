@@ -12,6 +12,12 @@ const HeaderComponent = () => {
     setIsOpen(!isOpen)
   }
 
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      toggleMenu()
+    }
+  }
+
   return (
     <div className="header">
       <div>
@@ -25,16 +31,24 @@ const HeaderComponent = () => {
           />
         </Link>
       </div>
-      <div className="menu-icon" onClick={toggleMenu}>
+      <div
+        className="menu-icon"
+        onClick={toggleMenu}
+        onKeyDown={handleKeyDown}
+        role="button"
+        tabIndex={0}
+        aria-label="Toggle menu"
+      >
+        
         <div className={`hamburger ${isOpen ? "open" : ""}`}></div>
       </div>
       <div className={`navLinks ${isOpen ? "open" : ""}`}>
         <div className="text-wrapper">
           |&nbsp;&nbsp;&nbsp;
           <Link to="/sobrenosotros">
-            <a className="styledLink subrayar animationFundido" href="">
+            <button className="styledLink subrayar animationFundido nosotros" type="button">
               SOBRE NOSOTROS
-            </a>
+            </button>
           </Link>
           &nbsp;&nbsp;&nbsp;|
         </div>

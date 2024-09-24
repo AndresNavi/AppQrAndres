@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
 import "./modal.css";
-import BtnClose from "../buttons/BtnClose";
 import BtnPrimary from "../buttons/BtnPrimary";
 
 // Asegúrate de enlazar el modal con el elemento raíz de tu aplicación
@@ -28,7 +27,7 @@ const FalloContraseña = () => {
     event.preventDefault();
     try {
       const response = await fetch(
-        "https://vigas.tandempatrimonionacional.eu/andres/v1/user/email.php",
+        "https://vigas.tandempatrimonionacional.eu/vigas/v1/user/email.php",
         {
           method: "POST",
           headers: {
@@ -60,7 +59,7 @@ const FalloContraseña = () => {
       >
         <div className="modalHeader">
           <h2>Recuperación de contraseñas</h2>
-          <BtnClose onClick={closeModal} className="btnClose" />
+          <button onClick={closeModal} className="close-modal-fallo-contraseña">❌</button>
         </div>
         <form onSubmit={handleSubmit}>
           <div className="textos">

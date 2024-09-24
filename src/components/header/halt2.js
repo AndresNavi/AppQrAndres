@@ -3,8 +3,10 @@ import { StaticImage } from "gatsby-plugin-image"
 import "./header.css"
 import "../layout.css"
 import { Link } from "gatsby"
+import Oscuro from "../oscuro/oscuro"
+
 const Halt2 = () => (
-  <div className="halt2">
+  <div className="halt2 hosc">
     <Link to="/">
       <StaticImage
         src="../../images/icons/logogeneradorqr.png"
@@ -15,14 +17,16 @@ const Halt2 = () => (
       />
     </Link>
     <div className="navLinks">
+      <Oscuro></Oscuro>
       <div className="text-wrapper">
         |&nbsp;&nbsp;&nbsp;
-        <Link to="/">
-          <a className="styledLink subrayar">INICIO</a>
+        <Link to="/" className="styledLink subrayar">
+          INICIO
         </Link>
         &nbsp;&nbsp;&nbsp;|&nbsp;
       </div>
     </div>
   </div>
 )
+
 export default Halt2

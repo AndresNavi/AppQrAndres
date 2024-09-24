@@ -25,21 +25,37 @@ const SelectRol = ({ onSelect }) => {
     <div
       className={`sel sel--selectrol ${isActive ? "active" : ""}`}
       onClick={handleToggle}
+      role="button"
+      tabIndex={0} // Agrega soporte de tabulación para navegación por teclado
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          handleToggle();
+        }
+      }}
     >
       <span className="sel__placeholder">{selectedOption}</span>
-      <div className="sel__box">
-        {options.map((option, index) => (
-          <span
-            key={index}
-            className={`sel__box__options ${
-              selectedOption === option.label ? "selected" : ""
-            }`}
-            onClick={() => handleSelect(option)}
-          >
-            {option.label}
-          </span>
-        ))}
-      </div>
+      {isActive && (
+        <div className="sel__box">
+          {options.map((option, index) => (
+            <span
+              key={index}
+              className={`sel__box__options ${
+                selectedOption === option.label ? "selected" : ""
+              }`}
+              onClick={() => handleSelect(option)}
+              role="button"
+              tabIndex={0} // Agrega soporte de tabulación para navegación por teclado
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  handleSelect(option);
+                }
+              }}
+            >
+              {option.label}
+            </span>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

@@ -1,9 +1,8 @@
 import React, { useState } from "react"
 import { StaticImage } from "gatsby-plugin-image"
 import "../buttons/buttons.css"
-import BtnClose from "./BtnClose"
 import BtnSecondary from "./BtnSecondary"
-import "../user&admin/changedatauser.css"
+import "../css-pages/usuario.css"
 import useAutoCloseModal from "../funcionalidades/useAutoCloseModal"
 
 function BtnUserEdit({ mailto, updateUserName }) {
@@ -16,7 +15,7 @@ function BtnUserEdit({ mailto, updateUserName }) {
   const handleChangeName = async () => {
     try {
       const response = await fetch(
-        "https://vigas.tandempatrimonionacional.eu/andres/v1/user/change-name.php",
+        "https://vigas.tandempatrimonionacional.eu/vigas/v1/user/change-name.php",
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -38,7 +37,7 @@ function BtnUserEdit({ mailto, updateUserName }) {
   const handleChangePassword = async () => {
     try {
       const response = await fetch(
-        "https://vigas.tandempatrimonionacional.eu/andres/v1/user/change-password.php",
+        "https://vigas.tandempatrimonionacional.eu/vigas/v1/user/change-password.php",
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -60,7 +59,7 @@ function BtnUserEdit({ mailto, updateUserName }) {
         <button className="btnUserEdit animationFundido" onClick={toggleModal}>
           <div className="icon-role-container">
             <StaticImage
-              className="icon-role"
+              className="icon-role btnwhite"
               src="../../images/icons/editar-usuario.png"
               alt="Icon-Role"
             />
@@ -74,7 +73,7 @@ function BtnUserEdit({ mailto, updateUserName }) {
           <div className="modal">
             <div className="modal-header">
               <h2>Modificar datos de Usuario</h2>
-              <BtnClose onClick={toggleModal} />
+              <button className="close-modificar-user" onClick={toggleModal}>❌</button>
             </div>
             <div className="modal-body">
               <p>

@@ -11,21 +11,28 @@ const LoginForm = ({ login }) => {
   const handleLogin = async (values, { setSubmitting }) => {
     try {
       const response = await fetch(
-        "https://vigas.tandempatrimonionacional.eu/andres/v1/user/login.php",
+        
+        "https://vigas.tandempatrimonionacional.eu/vigas/v1/user/login.php",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ email: values.email, password: values.password }),
+          body: JSON.stringify({
+            email: values.email,
+            password: values.password,
+          }),
         }
       )
       const data = await response.json()
+      console.log(data); // Verifica la estructura de los datos
       if (data.message === "Login exitoso") {
         console.log(data.user)
         setMessage("Login exitoso")
 
         localStorage.setItem("userName", data.user.name)
+        localStorage.setItem("userRole", data.user.role)
+        localStorage.setItem("userId", data.user.id)
 
         navigate("/appsite")
       } else {
@@ -52,7 +59,9 @@ const LoginForm = ({ login }) => {
       >
         {({ isSubmitting, setFieldValue }) => (
           <Form>
-            <label htmlFor="email" className="label-login">Correo electrónico</label>
+            <label htmlFor="email" className="label-login">
+              Correo electrónico
+            </label>
             <div className="email-input-container">
               <Field
                 className="input-login"
@@ -64,7 +73,9 @@ const LoginForm = ({ login }) => {
               />
               <ErrorMessage name="email" />
             </div>
-            <label htmlFor="password" className="label-login">Contraseña</label>
+            <label htmlFor="password" className="label-login">
+              Contraseña
+            </label>
             <div className="password-input-container">
               <Field
                 className="input-login"
@@ -80,7 +91,7 @@ const LoginForm = ({ login }) => {
                 className="toggle-password-button"
                 onClick={toggleShowPassword}
               >
-                {showPassword ? "👁️​" : "👁️‍🗨️"}
+                {showPassword ? "👁️ " : "👁️‍🗨️"}
               </button>
             </div>
             <ErrorMessage name="password" />

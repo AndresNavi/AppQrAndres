@@ -14,7 +14,7 @@ const BtnInfo2 = ({ isExpanded, toggleExpand }) => {
       >
         <StaticImage
           className="icon-info"
-          src="../../images/icons/icon-info.png" // Verifica que la ruta sea correcta
+          src="../../images/icons/icon-info.png" 
           alt="info"
         />
       </button>

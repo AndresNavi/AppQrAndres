@@ -133,48 +133,6 @@
   color: var(--text-color-1);
 }
 /* btnTertiary (botón blanco con hover blanco) */
-/* btnClose & más (botón para cerrar ventanas o ampliar contenido (se añade X o +)) */
-.btnClose {
-  cursor: pointer;
-  background-color: transparent;
-  /* Cambiando tamaño de fuente cambia tamaño del botón */
-  font-size: var(--font-l);
-  letter-spacing: var(--letter-space);
-  margin-top: -2%;
-  border: transparent var(--btn-border-solid-1);
-  border-radius: 50%;
-  transition: 0.1s ease;
-  text-transform: uppercase;
-  text-shadow: 0.5px 1px 4px #454545;
-  position: relative;
-}
-.btnClose:hover {
-  text-shadow: 1px 1px 2px white;
-}
-.btnClose2 {
-  cursor: pointer;
-  background-color: transparent;
-  top: -30px;
-  left: -150px;
-  font-size: 28px;
-  letter-spacing: var(--letter-space);
-  border: transparent var(--btn-border-solid-1);
-  border-radius: 50%;
-  transition: 0.1s ease;
-  text-shadow: 0.5px 1px 4px #454545;
-  position: relative;
-}
-@media (max-width: 1024px) {
-  .btnClose2 {
-    margin-right: 56%;
-  }
-}
-@media (max-width: 500px) {
-  .btnClose2 {
-    left: 75%;
-  }
-}
-/* btnClose & más (botón para cerrar ventanas o ampliar contenido (se añade X o +)) */
 /* btnExit (botón para salir de la app) */
 .btnExit {
   cursor: pointer;
@@ -299,6 +257,17 @@
 .btnMasInfo:hover {
   background-color: var(--color-complementary-1);
 }
+.close-mas-info-user{
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  font-size: large;
+  margin-left: 340px;
+  margin-bottom: 50px;
+}
+.close-mas-info-user:hover{
+  cursor: pointer;
+}
 /* btnMasInfo (botón para más info del perfil) */
 /* btnInfo (botón para guardar contenido) */
 .btnInfo {
@@ -347,35 +316,29 @@
 .collapse-content.open {
   max-height: 100vh;
 }
-/* btnInfo (botón para guardar contenido) */
-/* btnNuevoQr (botón redirige a crear QR) */
-/* btnSave (botón para guardar contenido) */
-.btnNuevoQr {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--bg-color);
-  color: var(--color-primary);
+.close-button-info {
+  position: absolute;
+  background-color: transparent;
   border: none;
-  padding: 8px 16px;
-  border-radius: 5px;
+  margin-left: 750px;
+  margin-bottom: 60px;
+  font-size: large;
+}
+.close-button-info:hover{
   cursor: pointer;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
 }
-
-.btnNuevoQr:hover {
-  background-color: var(--color-complementary-1);
+@media (max-width: 412px){
+  .btnInfo {
+    margin-left: -14px;
+    margin-top: -70px;
+  }
+  .close-button-info{
+    margin-left: 320px;
+    margin-bottom: 90px;
+  }
 }
-
-.imgnuevoqr {
-  width: 40px;
-  height: 50px;
-  margin-right: 8px;
-}
-.pnuevoqr {
-  font-family: var(--font-text);
-}
+/* btnInfo (botón para guardar contenido) */
+/* btnSave (botón para guardar contenido) */
 .btnSave {
   display: inline-flex;
   align-items: center;
@@ -450,6 +413,23 @@
   transform: scale(100) translateX(2px);
   text-shadow: none;
 }
+.close-share-media{
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  margin-left: 490px;
+  margin-bottom: 55px;
+  font-size: large;
+}
+.close-share-media:hover{
+  cursor: pointer;
+}
+@media (max-width: 412px){
+  .close-share-media{
+    margin-left: 330px;
+    margin-bottom: 80px;
+  }
+}
 /* btnShare (botón para editar contenido) */
 /* btnDownload (botón para descargar contenido) */
 .btnDownload {
@@ -489,6 +469,17 @@
   visibility: visible;
   transform: scale(100) translateX(2px);
   text-shadow: none;
+}
+.close-download-qr{
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  font-size: large;
+  margin-left: 320px;
+  margin-bottom: 60px;
+}
+.close-download-qr:hover{
+  cursor: pointer;
 }
 /* btnDownload (botón para descargar contenido) */
 /* btnSubmit (botón del formulario) */
@@ -797,6 +788,17 @@
   visibility: visible;
   opacity: 1;
 }
+.close-change-user-rol{
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  font-size: large;
+  margin-left: 740px;
+  margin-bottom: 40px;
+}
+.close-change-user-rol:hover{
+  cursor: pointer;
+}
 /* BtnUserRol (Botón para editar el Rol de un usuario */
 /* BtnUserEdit (Botón para editar el Rol de un usuario */
 .btnUserEdit {
@@ -829,6 +831,22 @@
 .btnUserDelete span {
   display: none;
 }
+.close-delete-user{
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  font-size: large;
+  margin-left: 580px;
+  margin-bottom: 50px;
+}
+.close-delete-user:hover{
+  cursor: pointer;
+}
+@media (max-width: 412px) {
+  .close-delete-user{
+    margin-left: 330px;
+  }
+}
 /* BtnDeleteUser (Botón para editar el Rol de un usuario */
 /* BtnDeleteQR (Botón para eliminar QR) */
 .btnQRDelete {
@@ -846,16 +864,163 @@
   width: 40px;
   margin: 0 auto;
 }
+.close-delete-qr{
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  font-size: large;
+  margin-left: 360px;
+  margin-bottom: 50px;
+}
+.close-delete-qr:hover{
+  cursor: pointer;
+}
+@media (max-width: 412px){
+  .close-delete-qr{
+    margin-left: 330px;
+    margin-bottom: 50px;
+  }
+}
 /* BtnDeleteQR (Botón para eliminar QR) */
 
 /* BtnNuevoQr (Botón para llevar a Crear qr */
+.btnNuevoQr {
+  position: absolute;
+  align-items: center;
+  background-color: var(--bg-color);
+  color: var(--color-primary);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  left: 17.5%;
+  top: 18.5%;
+}
 
+.btnNuevoQr:hover {
+  background-color: var(--color-complementary-1);
+}
+
+.imgnuevoqr {
+  width: 40px;
+  height: 50px;
+  margin-right: 8px;
+}
+.pnuevoqr {
+  font-family: var(--font-text);
+}
+@media (max-width: 1024px) {
+  .btnNuevoQr{
+    left: 6%;
+    top: 15%;
+  }
+}
+@media (max-width: 412px) {
+  .btnNuevoQr{
+    left: 32%;
+    top: 24%;
+  }
+}
 /* BtnNuevoQr (Botón para llevar a Crear qr */
-
 .fixedbtninfo {
   position: absolute;
 }
-
+/*BtnAddUser*/
+.btnadduserlist{
+  border: var(--color-secondary) var(--btn-border-solid-1);
+  border-radius: var(--btn-radius-1);
+  padding: 0.5em;
+  font-weight: bold;
+  color: var(--color-primary);
+}
+@media (max-width: 412px){
+  .btnadduserlist{
+    position: absolute;
+    margin-left: 170px;
+    margin-top: 24px;
+  }
+}
+/*BtnAddUser*/
+/*BtnAddQr*/
+.btnNuevoQr{
+  margin-left: 5%;
+  border: var(--color-secondary) var(--btn-border-solid-1);
+  border-radius: var(--btn-radius-1);
+  font-weight: bold;
+  color: var(--color-primary);
+  font-size: medium;
+}
+/*BtnAddQr*/
+/*BtnInfoUser*/
+.close-info-user{
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  font-size: large;
+  margin-left: 1320px;
+  margin-bottom: 50px;
+}
+.close-info-user:hover{
+  cursor: pointer;
+}
+@media (max-width:1024px){
+  .close-info-user{
+    margin-left: 850px;
+  }
+}
+@media (max-width: 412px){
+  .close-info-user{
+    margin-left: 330px;
+    margin-bottom: 70px;
+  }
+}
+/*BtnInfoUser*/
+/*BtnEditUser*/
+.close-modificar-user{
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  font-size: large;
+  margin-left: 710px;
+  margin-bottom: 50px;
+}
+.close-modificar-user:hover{
+  cursor: pointer;
+}
+@media (max-width: 412px){
+  .close-modificar-user{
+    margin-left: 330px;
+    margin-bottom: 70px;
+  }
+}
+/*BtnEditUser*/
+/*BtnMasInfoLista*/
+.close-mas-info-qr{
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  font-size: large;
+  margin-left: 740px;
+  margin-bottom: 40px;
+}
+.close-mas-info-qr:hover{
+  cursor: pointer;
+}
+@media (max-width: 1024px){
+  .close-mas-info-qr{
+    margin-left: 580px;
+    margin-bottom: 50px;
+  }
+}
+@media (max-width: 412px){
+  .close-mas-info-qr{
+    margin-left: 330px;
+    margin-bottom: 50px;
+  }
+}
+/*BtnMasInfoLista*/
 /* MEDIA QUERYS BOTONES ================================================================== */
 /* ======================================================================================= */
 
@@ -893,6 +1058,12 @@
   }
   .tooltip-container-configRol:hover .tooltip-configRol {
     display: none;
+  }
+}
+@media (max-width: 412px) {
+  .close-change-user-rol{
+    margin-left: 330px;
+    margin-bottom: 50px;
   }
 }
 /* BtnUserRol (Botón para editar el Rol de un usuario */

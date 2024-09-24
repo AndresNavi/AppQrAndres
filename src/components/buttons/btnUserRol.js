@@ -1,15 +1,12 @@
-// btnUserRol.js
 import React, { useState } from "react"
 import { StaticImage } from "gatsby-plugin-image"
 import "../buttons/buttons.css"
 import "../modals/modal.css"
-import BtnClose from "./BtnClose"
 import SelectRol from "../selects/select-rol"
 import BtnSecondary from "./BtnSecondary"
 import useAutoCloseModal from "../funcionalidades/useAutoCloseModal"
 
 function BtnRolUser({ mailto, updateUserRole }) {
-  //updateUserRole hará que el cambio se refleje en la pág.
   const { isOpen, toggleModal, setAutoClose } = useAutoCloseModal()
   const [mail] = useState(mailto)
   const [selectedRole, setSelectedRole] = useState("")
@@ -20,7 +17,7 @@ function BtnRolUser({ mailto, updateUserRole }) {
       console.log("Iniciando petición para cambiar rol", mail)
 
       const response = await fetch(
-        "https://vigas.tandempatrimonionacional.eu/andres/v1/user/change-role.php",
+        "https://vigas.tandempatrimonionacional.eu/vigas/v1/user/change-role.php",
         {
           method: "PUT",
           headers: {
@@ -36,8 +33,8 @@ function BtnRolUser({ mailto, updateUserRole }) {
         const data = await response.json()
         console.log("Datos recibidos:", data)
         setMessage(data.message)
-        updateUserRole(mail, selectedRole) // Actualizo el rol del usuario
-        setAutoClose(true) // Activo el auto cierre después de recibir la respuesta exitosa
+        updateUserRole(mail, selectedRole)
+        setAutoClose(true)
       } else {
         const errorData = await response.json()
         console.error("Error en la respuesta del servidor:", errorData)
@@ -59,7 +56,7 @@ function BtnRolUser({ mailto, updateUserRole }) {
         <button className={`btnRolUser animationFundido`} onClick={toggleModal}>
           <div className="icon-role-container">
             <StaticImage
-              className="icon-role"
+              className="icon-role btnwhite"
               src="../../images/icons/config-rol.png"
               alt="Icon-Role"
             />
@@ -73,7 +70,7 @@ function BtnRolUser({ mailto, updateUserRole }) {
           <div className="modal">
             <div className="modal-header">
               <h2>Cambiar Rol de usuario</h2>
-              <BtnClose onClick={toggleModal} />
+              <button className="close-change-user-rol" onClick={toggleModal}>❌</button>
             </div>
             <div className="modal-body">
               <p>

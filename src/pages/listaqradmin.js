@@ -36,7 +36,7 @@ function ListaQr() {
   return (
     <>
       <Halt></Halt>
-      <ListQr url="https://vigas.tandempatrimonionacional.eu/vigas/v1/qr/list-qr.php"></ListQr>
+      <ListQr url="https://vigas.tandempatrimonionacional.eu/vigas/v1/qr/list-qr-admin.php"></ListQr>
       <BtnBack />
       <BtnUp />
       <Footer></Footer>
@@ -44,5 +44,5 @@ function ListaQr() {
   )
 }
 
-export const Head = () => <Seo title="Lista de QRs" />
+export const Head = () => <Seo title="Lista de todos los QRs" />
 export default ListaQr

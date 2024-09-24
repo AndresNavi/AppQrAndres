@@ -67,7 +67,7 @@
   background-color: white;
   border-radius: 10px;
   padding: 10px;
-  width: auto;
+  width: 470px;
   max-width: 90%;
   margin: auto;
   position: relative;
@@ -106,5 +106,37 @@ label {
 @media (max-width: 1024px) {
   .modal-content {
     max-height: 650px;
+  }
+}
+.close-modal-fallo-contraseña{
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  margin-left: 415px;
+  margin-bottom: 30px;
+  font-size: large;
+}
+.close-modal-fallo-contraseña:hover{
+  cursor: pointer;
+}
+.close-modal-registro{
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  font-size: large;
+  margin-left: 410px;
+  margin-bottom: 25px;
+}
+.close-modal-registro:hover{
+  cursor: pointer;
+}
+@media (max-width: 412px){
+  .close-modal-fallo-contraseña{
+    margin-left: 330px;
+    margin-bottom: 60px;
+  }
+  .close-modal-registro{
+    margin-left: 330px;
+    margin-bottom: 40px;
   }
 }

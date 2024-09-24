@@ -93,6 +93,8 @@ body{
 
 #validacion-contraseña {
   margin-top: 10px;
+  font-size: medium;
+  font-weight: bold;
 }
 
 #eye-input-register-2 {
@@ -108,7 +110,7 @@ body{
   font-size: 18px;
 }
 
-.error-message-brook {
+.error-message-confirmpassword {
   margin-top: -25%;
 }
 
@@ -137,4 +139,122 @@ body{
   background-color: #5a0a00;
   text-shadow: none;
   border: #5a0a00 var(--btn-border-solid-1);
+}
+.tittle-modal-add-user{
+  color: var(--text-color-1);
+}
+.label-add-user{
+  color: var(--text-color-3);
+  text-shadow: none;
+  font-weight: bolder;
+  font-size: large;
+}
+.input-register-add-user{
+  width: 250px;
+  height: 30px;
+}
+.toggle-password-button-add-user{
+  position: absolute;
+  right: 18%;
+  top: 46%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.toggle-password-button-add-user-2{
+  position: absolute;
+  right: 18%;
+  top: 46%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+#validacion-contraseña-add-user{
+  margin-top: 10px;
+  font-size: medium;
+  font-weight: bold;
+  text-align: left;
+  margin-left: 46px;
+  margin-top: -20px;
+}
+.close-modal-add-user{
+  background-color: transparent;
+  border: none;
+  margin-left: 740px;
+  font-size: large;
+}
+.close-modal-add-user:hover{
+  cursor: pointer;
+}
+@media (max-width: 1024px){
+  .auth-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .form-login{
+    margin-left: 10px;
+    margin-top: 220px;
+  }
+  .form-register{
+    height: auto;
+    margin-left: 20px;
+    margin-top: 200px;
+    margin-bottom: 272px;
+  }
+}
+@media (max-width: 412px) {
+  .auth-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .form-login {
+    margin-top: 90px;
+    margin-left: 60px;
+  }
+  .form-register {
+    width: 350px;
+    margin-top: 10px;
+    margin-left: 30px;
+    margin-bottom: 30px;
+  }
+  .form-register .field-group{
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  #eye-input-register{
+    margin-right: 15px;
+  }
+  #eye-input-register-2{
+    margin-left: -13px;
+  }
+  .close-modal-add-user{
+    margin-left: 315px;
+    margin-top: -5px;
+  }
+  #register-form-modal #register-field-group{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+  }
+  .password-modal-register{
+    margin-left: 20px;
+  }
+  .confirm-password-modal-register{
+    margin-left: -291px;
+    margin-top: 100px;
+  }
+  .btnregistromodal{
+    margin-top: -10px;
+  }
+  .toggle-password-button-add-user{
+    margin-right: -40px;
+  }
+  .toggle-password-button-add-user-2{
+    margin-right: -28px;
+  }
 }

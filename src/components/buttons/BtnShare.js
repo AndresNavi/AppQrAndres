@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import "../buttons/buttons.css";
 import "../modals/modal.css";
-import BtnClose from "./BtnClose";
 import BtnsSocialMedia from "./BtnsSocialMedia";
 
 function BtnShare() {
@@ -50,7 +49,7 @@ function BtnShare() {
           <div className="modal animationFundido" ref={modalRef}>
             <div className="modal-header">
               <h2>Compartir en redes sociales</h2>
-              <BtnClose onClick={toggleModal}></BtnClose>
+              <button className="close-share-media" onClick={toggleModal}>❌</button>
             </div>
             <div className="modal-body">
               <p>Seleccione la red social donde desea compartir esta App</p>
